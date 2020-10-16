@@ -37274,6 +37274,8 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./main */ "./resources/js/main.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37318,6 +37320,30 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/main.js":
+/*!******************************!*\
+  !*** ./resources/js/main.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function ($) {
+  "use strict";
+
+  if ($(".typedText").length == 1) {
+    var titlesList = $(".titles").text();
+    var texts = new Typed(".typedText", {
+      strings: titlesList.split(","),
+      typeSpeed: 80,
+      loop: true,
+      backDelay: 1100,
+      backSpeed: 30
+    });
+  }
+})(jQuery);
 
 /***/ }),
 

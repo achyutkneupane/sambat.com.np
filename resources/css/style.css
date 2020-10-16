@@ -1,0 +1,469 @@
+/* CSS made for Sambat Adhikari
+https://sambat.com.np
+By Achyut Neupane
+https://www.facebook.com/ThisIsAchyut
+Can be used for reference */
+
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Gothic+A1&family=Staatliches&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@font-face {
+    font-family: "Coolvetica Rg";
+    src: url("coolvetica.ttf");
+}
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+body {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: "Montserrat", sans-serif;
+    color: #000;
+}
+.transImage {
+    background-color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    left: 0px;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+.bgImage {
+    left: 99%;
+    top: 50%;
+    -ms-transform: translate(-100%, -50%);
+    transform: translate(-100%, -50%);
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("SambatVector.png");
+    padding: 0;
+    height: 100%;
+    width: 50%;
+    background-position: center right;
+    background-repeat: no-repeat;
+    position: fixed;
+}
+.titleBox {
+    top: 50%;
+    left: 5%;
+    width: 50%;
+    position: absolute;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.nameBox {
+    width: 50%;
+}
+.titleName {
+    font-size: 12vw;
+    font-family: "Coolvetica Rg";
+}
+
+.titleSub .titles {
+    display: none;
+}
+
+.titleSub .typedText {
+    font-family: "Gothic A1", sans-serif;
+}
+
+.titleBox .titleButtons {
+    margin-top: 2%;
+    width: 50%;
+    font-family: "Oswald", sans-serif;
+    text-align: center;
+}
+
+.titleButtons .titleBtn {
+    width: 100%;
+}
+.titleButtons .titleBtn .btn {
+    font-size: 110%;
+}
+
+.titleButtons .btn {
+    width: 100%;
+    text-align: center;
+}
+
+.social-menu ul {
+    position: fixed;
+    top: 98%;
+    left: 75%;
+    transform: translate(-50%, -95%);
+    -ms-transform: translate(-50%, -95%);
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+.social-menu ul li {
+    list-style: none;
+    margin: 0 5px;
+}
+.social-menu ul li .fa {
+    color: #000000;
+    font-size: 25px;
+    line-height: 50px;
+    transition: 0.5s;
+}
+.social-menu ul li .fa:hover {
+    color: #ffffff;
+}
+.social-menu ul li a {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    text-align: center;
+    transition: 0.5s;
+    transform: translate(0, 0px);
+    box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.5);
+}
+.social-menu ul li a:hover {
+    transform: rotate(0deg) skew(0deg) translate(0, -10px);
+    border: solid 2px #fff;
+}
+.social-menu ul li:nth-child(1) a:hover {
+    background-color: #3b5999;
+}
+.social-menu ul li:nth-child(2) a:hover {
+    background-color: #e4405f;
+}
+.social-menu ul li:nth-child(3) a:hover {
+    background-color: #cd201f;
+}
+.modal {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.modal-content {
+    color: #fff;
+    background: transparent;
+    border: none;
+}
+.modal-body a {
+    color: #fff;
+}
+.copyRight {
+    top: 98%;
+    left: 2%;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    position: fixed;
+    font-size: 0.8rem;
+    color: #000;
+}
+.copyRight a {
+    font-size: 1rem;
+    color: #000;
+    text-decoration: solid;
+}
+.bioBox {
+    max-width: 100vw;
+    max-height: 100vh;
+    margin-left: 10%;
+    margin-right: auto;
+    position: relative;
+}
+* a {
+    color: #000;
+}
+* a:hover {
+    color: #3c3c3c;
+}
+.bioBox .bioRow .bioHead {
+    top: 10vh;
+    width: 50%;
+    float: left;
+    position: fixed;
+}
+.bioBox .bioRow .bioHead .fa {
+    padding: 1vw;
+}
+.bioBox .bioRow .bioHead .bioBackBtn {
+    float: left;
+    font-size: 5vw;
+    padding: 1vw;
+}
+.bioBox .bioRow .bioHead .bioAbout {
+    font-size: 6vw;
+    font-family: "Coolvetica Rg";
+}
+.bioBox .bioRow .bioText {
+    top: 20vw;
+    width: 43vw;
+    float: left;
+    position: fixed;
+    text-align: justify;
+    text-justify: inter-word;
+    overflow: scroll;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+.bioBox .bioRow .bioBg {
+    display: none;
+}
+@media screen and (min-width: 990px) {
+    .titleBox {
+        left: 10%;
+        width: 100%;
+    }
+
+    .bgImage {
+        left: 94%;
+        background-size: 30vw 100vh;
+    }
+    .social-menu ul {
+        top: 98%;
+        left: 80%;
+    }
+    .bioBox .bioRow {
+        width: 100%;
+        height: 100%;
+    }
+    .bioBox .bioRow .bioText {
+        top: 17vw;
+        height: 70vh;
+        width: 50vw;
+    }
+}
+@media screen and (max-width: 991px) {
+    .titleBox .titleButtons {
+        width: 60%;
+    }
+
+    .bgImage {
+        background-size: 45vw 100vh;
+    }
+    .titleBox {
+        width: 55%;
+    }
+    .titleButtons .titleBtn {
+        margin: 1% 0%;
+    }
+
+    .social-menu ul {
+        top: 98%;
+        left: 78%;
+    }
+    .bioBox .bioRow .bioText {
+        height: 65vh;
+    }
+}
+@media screen and (max-width: 800px) {
+    .social-menu ul {
+        top: 98%;
+        left: 77%;
+    }
+    .bioBox .bioRow .bioText {
+        height: 70vh;
+    }
+}
+@media screen and (max-width: 700px) {
+    .bgImage {
+        background-size: 50vw 100vh;
+    }
+
+    .social-menu ul {
+        top: 98%;
+        left: 75%;
+    }
+    .bioBox {
+        top: 5vh;
+    }
+    .bioBox .bioRow .bioHead {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .bioBox .bioRow .bioHead .bioBackBtn {
+        width: 25%;
+        float: left;
+        font-size: 6vw;
+        padding: 2vw;
+        overflow: hidden;
+    }
+    .bioBox .bioRow .bioHead .bioAbout {
+        width: 75%;
+        font-size: 8vw;
+        float: left;
+        overflow: hidden;
+    }
+    .bioBox .bioRow .bioText {
+        top: 35vh;
+        width: 90%;
+        height: 52vh;
+        position: absolute;
+    }
+
+    .bioBox .bioRow .bioBg {
+        left: 75%;
+        transform: translate(-50%, 0%);
+        display: block;
+        position: fixed;
+        width: 35vw;
+        height: 30vh;
+    }
+    .bioBox .bioRow .bioBg .bioImage {
+        background-image: url("SambatVector.png");
+        background-size: 35vw 35vh;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: top right;
+    }
+}
+@media screen and (max-width: 509px) {
+    .bioBox .bioRow .bioBg {
+        left: 65%;
+        transform: translate(-50%, 0%);
+        width: 45vw;
+        height: 30vh;
+    }
+    .titleBox .titleButtons {
+        width: 70%;
+    }
+    .social-menu ul {
+        top: 98%;
+        left: 75%;
+    }
+    .titleSub .typedText {
+        font-family: "Gothic A1", sans-serif;
+        font-size: 1.2rem;
+    }
+    .bgImage {
+        background-size: 50vw 75vh;
+    }
+    .copyRight {
+        font-size: 0.7rem;
+    }
+    .copyRight a {
+        font-size: 0.9rem;
+    }
+
+    .bioBox .bioRow .bioHead {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .bioBox .bioRow .bioHead .bioBackBtn {
+        float: left;
+        font-size: 5vh;
+        padding: 1vh;
+        overflow: visible;
+    }
+    .bioBox .bioRow .bioHead .bioAbout {
+        width: 80%;
+        font-size: 6.3vh;
+        float: left;
+        overflow: visible;
+    }
+    .bioBox .bioRow .bioBg .bioImage {
+        background-size: 40vw 35vh;
+    }
+}
+@media screen and (max-width: 399px) {
+    .bioBox .bioRow .bioHead .bioBackBtn {
+        width: 60%;
+        font-size: 8vw;
+        padding: 1vw;
+    }
+    .bioBox .bioRow .bioHead .bioAbout {
+        width: 50%;
+        font-size: 9vw;
+    }
+    .bioBox .bioRow .bioBg {
+        left: 70%;
+        transform: translate(-50%, 0%);
+        width: 40vw;
+        height: 30vh;
+    }
+    .bioBox .bioRow .bioBg .bioImage {
+        background-size: 40vw 35vh;
+    }
+}
+
+/* Animation Section */
+.fadeInRight {
+    animation: fadeInRightAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeInRightAnimation {
+    0% {
+        opacity: 0;
+        transform: translateX(-200px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.fadeInLeft {
+    animation: fadeInLeftAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeInLeftAnimation {
+    0% {
+        opacity: 0;
+        transform: translateX(80px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.fadeInUp {
+    animation: fadeInUpAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeInUpAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.fadeInDown {
+    animation: fadeInDownAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeInDownAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(-80px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.fadeIn {
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
