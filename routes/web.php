@@ -17,13 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'RouteController@index');
 Route::get('/bio', 'RouteController@bio');
 Route::get('/blog', 'RouteController@blog');
-Route::get('/profile', 'RouteController@profile');
+Route::get('/setting', 'RouteController@setting');
 
-Route::resource('posts', 'PostController');
-Route::resource('replies', 'ReplyController');
-Route::resource('tags', 'TagController');
-Route::resource('categories', 'CategoryController');
-Route::resource('comments', 'CommentController');
+Route::resource('/home/posts', 'PostController');
+Route::resource('/home/replies', 'ReplyController');
+Route::resource('/home/tags', 'TagController');
+Route::resource('/home/categories', 'CategoryController');
+Route::resource('/home/comments', 'CommentController');
 
 Auth::routes(['register' => false]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

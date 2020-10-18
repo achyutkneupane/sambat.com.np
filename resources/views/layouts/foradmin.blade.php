@@ -25,25 +25,20 @@ https://www.facebook.com/ThisIsAchyut
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm ml-auto">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm ml-auto sticky-top">
         <div class="container">
             <h2 class="navbar-nav mr-auto">
-                <a href='{{ url('/home') }}'>
+                <a href='{{ url('/home') }}' class='text-white'>
                     Admin Panel
                 </a>
             </h2>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="btn btn-dark ml-1" href="{{ url('/')}}">View Site</a>
+                    <a class="btn btn-light ml-1" href="{{ url('/')}}">View Site</a>
                 </li>
                 @auth
                 <li class="nav-item">
-                    <a href="{{ url('/profile') }}" class="btn btn-dark ml-1">
-                        Profile
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-dark ml-1" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                    <a class="btn btn-light ml-1" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
@@ -53,10 +48,10 @@ https://www.facebook.com/ThisIsAchyut
             </ul>
         </div>
     </nav>
-    @auth
     <div class="container mt-4">
-        <div class="row justify-content-left">
-            <div class="col-md-3">
+        <div class="row justify-content-center">
+            @auth
+            <div class="col-md-3 my-1">
                 <div class="card">
                     <div class="card-header">{{ __('Admin Menu') }}</div>
 
@@ -68,18 +63,30 @@ https://www.facebook.com/ThisIsAchyut
                         @endif
                         <div class="list-group-flush">
                             <div class="list-group-item">
-                                <a href="{{route('posts.create')}}">Create Post</a>
+                                <a href="{{route('posts.index')}}">
+                                    Posts
+                                </a>
                             </div>
                             <div class="list-group-item">
-                                Item 2
+                                <a href="{{route('categories.index')}}">
+                                    Categories
+                                </a>
+                            </div>
+                            <div class="list-group-item">
+                                <a href="{{ url('/setting') }}">
+                                    Setting
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-9">
+            @endauth
+            <div class="col-md-9 my-1">
                 <div class="card">
-                    <div class="card-header justify-content-between">@yield('sectionTitle')</div>
+                    <div class="card-header">
+                        @yield('sectionTitle')
+                    </div>
                     <div class="card-body">
                         @yield('content')
                     </div>
@@ -87,14 +94,20 @@ https://www.facebook.com/ThisIsAchyut
             </div>
         </div>
     </div>
-    @endauth
     <div class="copyRight fadeIn">
         Developed by:
         <a href="https://fb.me/ThisIsAchyut" target="_blank"><b>Achyut</b></a>
     </div>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 <script src="{{ asset('js/app.js') }}" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+    .create( document.querySelector( '#postContent' ) )
+    .catch( error => {
+        console.error( error );
+    } );
+</script>
 </html>

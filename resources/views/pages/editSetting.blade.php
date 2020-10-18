@@ -1,6 +1,6 @@
 @extends('layouts.foradmin')
-@section('title','Edit Profile')
-@section('sectionTitle','Edit Profile')
+@section('title','Edit Setting')
+@section('sectionTitle','Edit Setting')
 @section('content')
     Profile
 @endsection

@@ -18,8 +18,8 @@ class RouteController extends Controller
     {
         return view('pages.viewBlog');
     }
-    public function profile()
+    public function setting()
     {
-        return view('pages.editprofile');
+        return view('pages.editSetting');
     }
 }
