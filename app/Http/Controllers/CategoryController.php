@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
+use Session;
 
 class CategoryController extends Controller
 {
@@ -13,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('categories.index');
+        return view('categories.index')->with('categories', Category::all());
     }
 
     /**
@@ -34,7 +36,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(
+            [
+                'title' => 'required|unique:categories',
+                'slug' => 'required|unique:categories'
+            ]
+        );
+        $catg = new Category;
+        $catg->title = $request->title;
+        $catg->slug = $request->slug;
+        $catg->save();
+        $request->session()->flash('success', 'Category ' . $catg->title . ' Added');
+        return redirect()->back();
     }
 
     /**

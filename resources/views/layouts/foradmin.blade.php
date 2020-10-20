@@ -103,6 +103,7 @@ https://www.facebook.com/ThisIsAchyut
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
+@include('layouts.toastfile')
 <script>
     ClassicEditor
     .create( document.querySelector( '#postContent' ) )
