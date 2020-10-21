@@ -23,9 +23,9 @@
             <tbody>
                 @foreach ($posts as $post)
                     <tr>
-                        <th scope="row">{{ $cat->id }}</th>
-                        <td>{{ $cat->title }}</td>
-                        <td>{{ $cat->views }}</td>
+                        <th scope="row">{{ $post->id }}</th>
+                        <td>{{ $post->title }}</td>
+                        <td>{{ $post->views }}</td>
                         <td>
                             <a href="">Edit</a><br>
                             <a href="">Delete</a>
