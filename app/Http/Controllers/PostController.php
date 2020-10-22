@@ -59,7 +59,7 @@ class PostController extends Controller
             'featured_image' => 'uploads/posts/' . $featured_new_name
         ]);
         $request->session()->flash('success', 'Post ' . $request->title . ' created');
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index')->withInput();
     }
 
     /**

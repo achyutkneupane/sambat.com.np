@@ -7,19 +7,21 @@
     <div class="form-group row">
         <label for="postTitle" class="col-sm-2 col-form-label">Post Title</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" name="title" id="postTitle" placeholder="Post Title">
+        <input type="text" class="form-control" name="title" value="{{ old('title') }}" id="postTitle" placeholder="Post Title">
         </div>
     </div>
     <div class="form-group row">
         <div class="form-group col-md-6">
           <label for="postSlug">Post Slug</label>
-          <input type="text" class="form-control" name="slug" id="postSlug" placeholder="Post Slug">
+          <input type="text" class="form-control" name="slug" value="{{ old('slug') }}" id="postSlug" placeholder="Post Slug">
         </div>
         <div class="form-group col-md-6">
             <label for="category">Category</label>
             <select name="category_id" class="form-control">
             @foreach($categories as $cat)
-                <option value="{{ $cat->id }}">{{ $cat->title }}</option>
+                <option value="{{ $cat->id }}" {{ old('category_id') == $cat->id ? 'selected' : '' }}>
+                    {{ $cat->title }}
+                </option>
             @endforeach
             </select>
         </div>
@@ -27,7 +29,7 @@
     <div class="form-group row">
         <label for="postTags" class="col-sm-2 col-form-label">Post Tags</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" name="tag_id" id="postTags" placeholder="Post Tags">
+          <input type="text" class="form-control" name="tag_id" value="{{ old('tag_id') }}" id="postTags" placeholder="Post Tags">
         </div>
     </div>
     <div class="form-group row">

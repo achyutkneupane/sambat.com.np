@@ -18,6 +18,7 @@
                     <th scope="col">Title</th>
                     <th scope="col">Slug</th>
                     <th scope="col">Count</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,7 +27,8 @@
                         <th scope="row">{{ $cat->id }}</th>
                         <td>{{ $cat->title }}</td>
                         <td>{{ $cat->slug }}</td>
-                        <td>0</td>
+                        <td>{{ $cat->posts->count() }}</td>
+                        <td><a href="{{ route('categories.edit', $cat->id) }}">Edit</a></td>
                     </tr>
                 @endforeach
             </tbody>
