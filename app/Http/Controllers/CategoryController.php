@@ -47,7 +47,7 @@ class CategoryController extends Controller
         $catg->slug = $request->slug;
         $catg->save();
         $request->session()->flash('success', 'Category ' . $catg->title . ' Added');
-        return redirect()->back();
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -69,7 +69,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('categories.edit')->with('category', Category::find($id));
     }
 
     /**
@@ -81,7 +81,18 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate(
+            [
+                'title' => 'required|unique:categories',
+                'slug' => 'required|unique:categories'
+            ]
+        );
+        $category = Category::find($id);
+        $category->title = $request->title;
+        $category->slug = $request->slug;
+        $category->save();
+        $request->session()->flash('success', 'Category ' . $request->title . ' updated');
+        return redirect()->route('categories.index')->withInput();
     }
 
     /**

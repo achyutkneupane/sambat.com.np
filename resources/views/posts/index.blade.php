@@ -21,17 +21,23 @@
                 </tr>
             </thead>
             <tbody>
+                @if (count($posts)>0)
                 @foreach ($posts as $post)
                     <tr>
                         <th scope="row">{{ $post->id }}</th>
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->views }}</td>
                         <td>
-                            <a href="">Edit</a><br>
+                        <a href="{{ route('posts.edit', $post->id) }}">Edit</a><br>
                             <a href="">Delete</a>
                         </td>
                     </tr>
                 @endforeach
+                @else
+                    <tr>
+                        <td colspan="4" class="text-center">No Posts</td>
+                    </tr>
+                @endif
             </tbody>
         </table>
     </div>

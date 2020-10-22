@@ -1,25 +1,26 @@
 @extends('layouts.foradmin')
-@section('title','Insert Post')
-@section('sectionTitle','Insert New Post')
+@section('title','Posts')
+@section('sectionTitle','Edit Post')
 @section('content')
-<form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('posts.update', $posts->id) }}" method="post" enctype="multipart/form-data">
     @csrf
+    @method('PUT')
     <div class="form-group row">
         <label for="postTitle" class="col-sm-2 col-form-label">Post Title</label>
         <div class="col-sm-10">
-        <input type="text" class="form-control" name="title" value="{{ old('title') }}" id="postTitle" placeholder="Post Title">
+        <input type="text" class="form-control" name="title" value="{{ $posts->title }}" id="postTitle" placeholder="Post Title">
         </div>
     </div>
     <div class="form-group row">
         <div class="form-group col-md-6">
           <label for="postSlug">Post Slug</label>
-          <input type="text" class="form-control" name="slug" value="{{ old('slug') }}" id="postSlug" placeholder="Post Slug">
+          <input type="text" class="form-control" name="slug" value="{{ $posts->slug }}" id="postSlug" placeholder="Post Slug">
         </div>
         <div class="form-group col-md-6">
             <label for="category">Category</label>
             <select name="category_id" class="form-control">
             @foreach($categories as $cat)
-                <option value="{{ $cat->id }}" {{ old('category_id') == $cat->id ? 'selected' : '' }}>
+                <option value="{{ $cat->id }}" {{ $posts->category_id == $cat->id ? 'selected' : '' }}>
                     {{ $cat->title }}
                 </option>
             @endforeach
@@ -29,10 +30,13 @@
     <div class="form-group row">
         <label for="postTags" class="col-sm-2 col-form-label">Post Tags</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" name="tag_id" value="{{ old('tag_id') }}" id="postTags" placeholder="Post Tags">
+          <input type="text" class="form-control" name="tag_id" value="{{ $posts->tag_id }}" id="postTags" placeholder="Post Tags">
         </div>
     </div>
     <div class="form-group row">
+        <div class="col-sm-12 m-2">
+            <img src="{{ url($posts->featured_image) }}" alt="{{ $posts->title }}" width="25%">
+        </div>
         <label for="featureUpload" class="col-sm-2 col-form-label">Feature Image</label>
         <div class="col-sm-10">
           <input type="file" class="form-control-file" name="featured_image" id="featureUpload">
@@ -42,7 +46,7 @@
         <div class="form-group col-md-12">
             <label for="postContent">Post Content</label>
             <textarea name="post_content" id="postContent" row="10">
-                {{ old('post_content') }}
+                {{ $posts->post_content }}
             </textarea>
         </div>
     </div>

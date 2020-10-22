@@ -22,4 +22,9 @@ class RouteController extends Controller
     {
         return view('pages.editSetting');
     }
+    public function check_slug(Request $request)
+    {
+        $slug = str_slug($request->title);
+        return response()->json(['slug' => $slug]);
+    }
 }

@@ -27,6 +27,10 @@ class PostController extends Controller
      */
     public function create()
     {
+        if (Category::all()->count() == 0) {
+            Session::flash('error', 'Add Category before adding post');
+            return redirect()->route('categories.create');
+        }
         return view('posts.create')->with('categories', Category::all());
     }
 
@@ -40,7 +44,7 @@ class PostController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'slug' => 'required',
+            'slug' => 'required|unique:posts',
             'featured_image' => 'required|image',
             'post_content' => 'required'
         ]);
@@ -81,7 +85,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('posts.edit')->with('posts', Post::find($id))->with('categories', Category::all());
     }
 
     /**
@@ -93,7 +97,29 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'slug' => 'required|unique:posts',
+            'featured_image' => 'image',
+            'post_content' => 'required'
+        ]);
+        $post = Post::find($id);
+        if ($request->hasFile('featured_image')) {
+            $featured = $request->featured_image;
+            $slug = $request->slug;
+            $extension = $featured->getClientOriginalExtension();
+            $featured_new_name = 'sambat-' . time() . '-' . $slug . '.' . $extension;
+            $featured->move('uploads/posts/', $featured_new_name);
+            $post->featured_image = 'uploads/posts/' . $featured_new_name;
+        }
+        $post->title = $request->title;
+        $post->slug = $request->slug;
+        $post->category_id = $request->category_id;
+        $post->tag_id = $request->tag_id;
+        $post->post_content = $request->post_content;
+        $post->save();
+        $request->session()->flash('success', 'Post ' . $request->title . ' updated');
+        return redirect()->route('posts.index');
     }
 
     /**

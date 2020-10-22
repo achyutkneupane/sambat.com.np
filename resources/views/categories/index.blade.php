@@ -22,6 +22,7 @@
                 </tr>
             </thead>
             <tbody>
+                @if(count($categories) > 0)
                 @foreach ($categories as $cat)
                     <tr>
                         <th scope="row">{{ $cat->id }}</th>
@@ -31,6 +32,11 @@
                         <td><a href="{{ route('categories.edit', $cat->id) }}">Edit</a></td>
                     </tr>
                 @endforeach
+                @else
+                    <tr>
+                        <td colspan="5" class="text-center">No Categories</td>
+                    </tr>
+                @endif
             </tbody>
         </table>
     </div>

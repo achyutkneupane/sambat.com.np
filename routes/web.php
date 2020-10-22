@@ -24,6 +24,7 @@ Route::resource('/home/replies', 'ReplyController');
 Route::resource('/home/tags', 'TagController');
 Route::resource('/home/categories', 'CategoryController');
 Route::resource('/home/comments', 'CommentController');
+Route::get('pages/check_slug', 'RouteController@check_slug')->name('pages.check_slug');
 
 Auth::routes(['register' => false]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
