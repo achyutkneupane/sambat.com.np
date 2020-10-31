@@ -29,7 +29,14 @@
     <div class="form-group row">
         <label for="postTags" class="col-sm-2 col-form-label">Post Tags</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" name="tag_id" value="{{ old('tag_id') }}" id="postTags" placeholder="Post Tags">
+            @foreach ($tags as $tag)
+            <div class="checkbox">
+                <label for="tag">
+                    <input type="checkbox" value="{{ $tag->id }}" name="tag[]">
+                    {{ $tag->title }}
+                </label>
+            </div>
+            @endforeach
         </div>
     </div>
     <div class="form-group row">

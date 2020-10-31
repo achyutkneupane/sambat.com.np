@@ -33,7 +33,7 @@
           out people expand their musical consciousness. His educational content
           on
           <a
-            href="https://www.youtube.com/channel/UCgUwxQUMKg9afeRpFtCKL0A"
+            href="https://www.youtube.com/sambatshree"
             target="_blank"
             ><b>YouTube</b></a
           >
@@ -41,26 +41,6 @@
         </div>
       </div>
     </div>
-    <div class="social-menu">
-      <ul>
-        <li class="fadeInUp">
-          <a href="https://www.facebook.com/5AMBAT/" target="_blank"
-            ><i class="fa fa-facebook"></i
-          ></a>
-        </li>
-        <li class="fadeInUp">
-          <a href="https://www.instagram.com/adhikarisambat/" target="_blank"
-            ><i class="fa fa-instagram"></i
-          ></a>
-        </li>
-        <li class="fadeInUp">
-          <a href="mailto:to.sambat@gmail.com"
-            ><i class="fa fa-envelope"></i
-          ></a>
-        </li>
-      </ul>
-    </div>
-@endsection
 <style>
     @media screen and (max-width: 700px) {
       .bgImage {
@@ -68,3 +48,4 @@
       }
     }
 </style>
+@endsection

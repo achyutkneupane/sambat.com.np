@@ -17,14 +17,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'RouteController@index');
 Route::get('/bio', 'RouteController@bio');
 Route::get('/blog', 'RouteController@blog');
-Route::get('/setting', 'RouteController@setting');
 
-Route::resource('/home/posts', 'PostController');
-Route::resource('/home/replies', 'ReplyController');
-Route::resource('/home/tags', 'TagController');
-Route::resource('/home/categories', 'CategoryController');
-Route::resource('/home/comments', 'CommentController');
-Route::get('pages/check_slug', 'RouteController@check_slug')->name('pages.check_slug');
+Route::group(['prefix' => 'admin/', 'middleware' => 'auth'], function () {
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('posts', 'PostController');
+    Route::resource('replies', 'ReplyController');
+    Route::resource('tags', 'TagController');
+    Route::resource('categories', 'CategoryController');
+    Route::resource('comments', 'CommentController');
+    Route::resource('setting', 'AdminDetailController');
+    Route::get('pages/check_slug', 'RouteController@check_slug')->name('pages.check_slug');
+    Route::get('posts/slugger', 'PostController@checkSlug')->name('posts.checkSlug');
+    Route::get('trash/posts', 'PostController@trashed')->name('posts.trashed');
+    Route::get('restore/post/{id}', 'PostController@restore')->name('posts.restore');
+    Route::get('kill/post/{id}', 'PostController@kill')->name('posts.kill');
+});
 
 Auth::routes(['register' => false]);
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/mysql', 'RouteController@phpmyadmin');

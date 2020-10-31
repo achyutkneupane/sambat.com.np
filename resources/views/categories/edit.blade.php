@@ -20,7 +20,7 @@
 
     <div class="form-group row">
         <div class="form-group col-md-4">
-            <input type="submit" value="Add Category" class="btn btn-dark">
+            <input type="submit" value="Edit Category" class="btn btn-dark">
         </div>
     </div>
 </form>

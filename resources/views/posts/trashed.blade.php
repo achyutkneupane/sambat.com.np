@@ -1,6 +1,6 @@
 @extends('layouts.foradmin')
 @section('title','Posts')
-@section('sectionTitle','View Posts')
+@section('sectionTitle','Trashed Posts')
 @section('content')
 <div class="container">
     <div class="row">
@@ -17,8 +17,8 @@
                     <th scope="col">S.No.</th>
                     <th scope="col">Title</th>
                     <th scope="col">Views</th>
-                    <th scope="col">Edit</th>
-                    <th scope="col">Delete</th>
+                    <th scope="col">Restore</th>
+                    <th scope="col">Remove</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,14 +29,10 @@
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->views }}</td>
                         <td>
-                        <a class="btn btn-dark" href="{{ route('posts.edit', $post->id) }}">Edit</a><br>
+                        <a class="btn btn-dark" href="{{ route('posts.restore', $post->id) }}">Restore</a>
                         </td>
                         <td>
-                        <form action="{{ route('posts.destroy', $post->id) }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <input type="submit" value="Delete" class="btn btn-dark" name="submit">
-                        </form>
+                            <a class="btn btn-dark" href="{{ route('posts.kill', $post->id) }}">Remove</a>
                         </td>
                     </tr>
                 @endforeach

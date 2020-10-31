@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Tag;
-use Session;
+use App\Models\AdminDetail;
 
-class TagController extends Controller
+class AdminDetailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        return view('tags.index')->with('tags', Tag::all());
+        return view('setting.index')->with('setting', AdminDetail::first());
     }
 
     /**
@@ -25,7 +24,7 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view('tags.create');
+        //
     }
 
     /**
@@ -36,18 +35,7 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(
-            [
-                'title' => 'required|unique:tags',
-                'slug' => 'required|unique:tags'
-            ]
-        );
-        $tag = new Tag;
-        $tag->title = $request->title;
-        $tag->slug = $request->slug;
-        $tag->save();
-        $request->session()->flash('success', 'Tag ' . $tag->title . ' Added');
-        return redirect()->route('tags.index');
+        //
     }
 
     /**
@@ -69,7 +57,7 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        return view('tags.edit')->with('tags', Tag::find($id));
+        //
     }
 
     /**
@@ -81,18 +69,7 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate(
-            [
-                'title' => 'required|unique:tags',
-                'slug' => 'required|unique:tags'
-            ]
-        );
-        $tag = Tag::find($id);
-        $tag->title = $request->title;
-        $tag->slug = $request->slug;
-        $tag->save();
-        $request->session()->flash('success', 'Tag ' . $tag->title . ' updated');
-        return redirect()->route('tags.index')->withInput();
+        //
     }
 
     /**

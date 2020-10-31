@@ -36,7 +36,7 @@
             </div>
             <div class="col-lg-3 titleBtn">
                 <a
-                    href="https://www.youtube.com/channel/UCgUwxQUMKg9afeRpFtCKL0A"
+                    href="https://www.youtube.com/sambatshree"
                     type="button"
                     class="btn btn-outline-dark"
                     target="_blank"
@@ -81,28 +81,9 @@
                         <b>Dharan, Nepal 56700</b><br />
                         <i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:977 9812354594">+977 9812354594</a><br>
                         <i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:9779842141959">+977 9842141959</a><br>
-                        <i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:to.sambat@gmail.com">to.sambat@gmail.com</a><br>
+                        <i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:info@sambat.com.np">info@sambat.com.np</a><br>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="social-menu">
-      <ul>
-        <li class="fadeInUp">
-          <a href="https://www.facebook.com/5AMBAT/" target="_blank"
-            ><i class="fa fa-facebook"></i
-          ></a>
-        </li>
-        <li class="fadeInUp">
-          <a href="https://www.instagram.com/adhikarisambat/" target="_blank"
-            ><i class="fa fa-instagram"></i
-          ></a>
-        </li>
-        <li class="fadeInUp">
-          <a href="mailto:to.sambat@gmail.com"
-            ><i class="fa fa-envelope"></i
-          ></a>
-        </li>
-      </ul>
     </div>
 @endsection

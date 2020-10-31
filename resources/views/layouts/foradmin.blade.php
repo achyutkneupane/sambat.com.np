@@ -63,17 +63,33 @@ https://www.facebook.com/ThisIsAchyut
                         @endif
                         <div class="list-group-flush">
                             <div class="list-group-item">
-                                <a href="{{route('posts.index')}}">
-                                    Posts
-                                </a>
+                                Posts
+                                <div class="list-group-flush">
+                                    <div class="list-group-item">
+                                        <a href="{{route('posts.index')}}">
+                                            Active Posts
+                                        </a>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <a href="{{route('posts.trashed')}}">
+                                            Trashed Posts
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                             <div class="list-group-item">
                                 <a href="{{route('categories.index')}}">
                                     Categories
                                 </a>
                             </div>
+
                             <div class="list-group-item">
-                                <a href="{{ url('/setting') }}">
+                                <a href="{{route('tags.index')}}">
+                                    Tags
+                                </a>
+                            </div>
+                            <div class="list-group-item">
+                                <a href="{{ route('setting.index') }}">
                                     Setting
                                 </a>
                             </div>

@@ -29,6 +29,25 @@ https://www.facebook.com/ThisIsAchyut
         <main class="py-4">
             @yield('content')
         </main>
+        <div class="social-menu">
+            <ul>
+              <li class="fadeInUp">
+                <a href="https://www.facebook.com/sambatshree/" target="_blank"
+                  ><i class="fa fa-facebook"></i
+                ></a>
+              </li>
+              <li class="fadeInUp">
+                <a href="https://www.instagram.com/sambatshree/" target="_blank"
+                  ><i class="fa fa-instagram"></i
+                ></a>
+              </li>
+              <li class="fadeInUp">
+                <a href="mailto:info@sambat.com.np"
+                  ><i class="fa fa-envelope"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
     </div>
     <div class="copyRight fadeIn">
         Developed by:
