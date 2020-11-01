@@ -57,7 +57,7 @@ class AdminDetailController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('setting.edit')->with('setting', AdminDetail::first());
     }
 
     /**
@@ -69,7 +69,28 @@ class AdminDetailController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate(
+            [
+                'titles' => 'required',
+                'address' => 'required',
+                'fbLink' => 'required',
+                'instaLink' => 'required',
+                'contact1' => 'required',
+                'contact2' => 'required',
+                'bio' => 'required'
+            ]
+        );
+        $setting = AdminDetail::find($id);
+        $setting->titles = $request->titles;
+        $setting->address = $request->address;
+        $setting->fbLink = $request->fbLink;
+        $setting->instaLink = $request->instaLink;
+        $setting->contact1 = $request->contact1;
+        $setting->contact2 = $request->contact2;
+        $setting->bio = $request->bio;
+        $setting->save();
+        $request->session()->flash('success', 'Settings updated');
+        return redirect()->route('setting.index')->withInput();
     }
 
     /**

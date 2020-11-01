@@ -4,13 +4,6 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-2 ml-auto">
-            <a href="{{ route('setting.edit', $setting->id) }}" class="btn btn-outline-dark">
-                + Edit
-            </a>
-        </div>
-    </div>
-    <div class="row mt-1">
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -23,12 +16,15 @@
                 </tr>
             </thead>
             <tbody>
+                <form action="{{ route('setting.update', $setting->id) }}" method="post">
+                    @csrf
+                    @method('PUT')
                 <tr>
                     <th scope="row">
                         Title
                     </th>
                     <td>
-                        {{ $setting->titles }}
+                        <input type="text" class="form-control" name="titles" value="{{ $setting->titles }}" placeholder="Titles">
                     </td>
                 </tr>
                 <tr>
@@ -36,7 +32,7 @@
                         Address
                     </th>
                     <td>
-                        {{ $setting->address }}
+                        <input type="text" class="form-control" name="address" value="{{ $setting->address }}" placeholder="Address">
                     </td>
                 </tr>
                 <tr>
@@ -44,9 +40,7 @@
                         Facebook Link
                     </th>
                     <td>
-                        <a href="{{ $setting->fbLink }}">
-                            {{ $setting->fbLink }}
-                        </a>
+                        <input type="text" class="form-control" name="fbLink" value="{{ $setting->fbLink }}" placeholder="Facebook">
                     </td>
                 </tr>
                 <tr>
@@ -54,9 +48,7 @@
                         Instagram Link
                     </th>
                     <td>
-                        <a href="{{ $setting->instaLink }}">
-                            {{ $setting->instaLink }}
-                        </a>
+                        <input type="text" class="form-control" name="instaLink" value="{{ $setting->instaLink }}" placeholder="Instagram">
                     </td>
                 </tr>
                 <tr>
@@ -64,9 +56,9 @@
                         Contact Numbers
                     </th>
                     <td>
-                        {{ $setting->contact1 }}
+                        <input type="text" class="form-control" name="contact1" value="{{ $setting->contact1 }}" placeholder="Contact Number">
                         <br>
-                        {{ $setting->contact2 }}
+                        <input type="text" class="form-control" name="contact2" value="{{ $setting->contact2 }}" placeholder="Contact Number">
                     </td>
                 </tr>
                 <tr>
@@ -74,7 +66,14 @@
                         Bio
                     </th>
                     <td>
-                        {!! $setting->bio !!}
+                        <textarea name="bio" id="postContent" row="10">
+                            {{ $setting->bio }}
+                        </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-center">
+                        <input type="submit" name="submit" value="Edit" class="btn btn-dark">
                     </td>
                 </tr>
             </tbody>
