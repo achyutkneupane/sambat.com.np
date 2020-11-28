@@ -15,10 +15,11 @@ class CreateRepliesTable extends Migration
     {
         Schema::create('replies', function (Blueprint $table) {
             $table->id();
-            $table->integer('comment_id');
+            $table->foreignId('comment_id')->nullable();
             $table->string('reply_name');
             $table->text('reply_text');
             $table->timestamps();
+            $table->foreign('comment_id')->references('id')->on('comments')->onDelete('SET NULL');
         });
     }
 

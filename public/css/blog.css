@@ -1,0 +1,42 @@
+body {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #ccc;
+  overflow-x: hidden;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #181818;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #616161;
+}
+.mainLogo {
+    width: 150px;
+    height: 170px;
+    overflow: hidden;
+}
+.mainLogo img {
+  width: 150px;
+  margin: -10px;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.main {
+  margin-left: 250px; 
+  font-size: 28px; 
+  padding: 0px 10px;
+}

@@ -33,6 +33,14 @@
                 </tr>
                 <tr>
                     <th scope="row">
+                        E-mail
+                    </th>
+                    <td>
+                        {{ $setting->email }}
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
                         Address
                     </th>
                     <td>
@@ -56,6 +64,16 @@
                     <td>
                         <a href="{{ $setting->instaLink }}">
                             {{ $setting->instaLink }}
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        Youtube Link
+                    </th>
+                    <td>
+                        <a href="{{ $setting->ytLink }}">
+                            {{ $setting->ytLink }}
                         </a>
                     </td>
                 </tr>

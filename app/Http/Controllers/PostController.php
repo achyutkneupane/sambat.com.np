@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
@@ -33,6 +34,9 @@ class PostController extends Controller
         if (Category::all()->count() == 0) {
             Session::flash('error', 'Add Category before adding post');
             return redirect()->route('categories.create');
+        } elseif (Tag::all()->count() == 0) {
+            Session::flash('error', 'Add Tags before adding post');
+            return redirect()->route('tags.create');
         }
         return view('posts.create')->with('categories', Category::all())->with('tags', Tag::all());
     }
@@ -55,10 +59,12 @@ class PostController extends Controller
         $featured = $request->featured_image;
         $slug = $request->slug;
         $extension = $featured->getClientOriginalExtension();
-        $featured_new_name = 'sambat-' . time() . '-' . $slug . '.' . $extension;
+        $featured_new_name = 'sambat.com.np-' . time() . '-' . $slug . '.' . $extension;
         $featured->move('uploads/posts/', $featured_new_name);
+        $userid = Auth::user()->id;
         $post = Post::create([
             'title' => $request->title,
+            'user_id' => $userid,
             'slug' => $request->slug,
             'views' => 0,
             'post_content' => $request->post_content,
@@ -112,7 +118,7 @@ class PostController extends Controller
             $featured = $request->featured_image;
             $slug = $request->slug;
             $extension = $featured->getClientOriginalExtension();
-            $featured_new_name = 'sambat-' . time() . '-' . $slug . '.' . $extension;
+            $featured_new_name = 'sambat.com.np-' . time() . '-' . $slug . '.' . $extension;
             $featured->move('uploads/posts/', $featured_new_name);
             $post->featured_image = 'uploads/posts/' . $featured_new_name;
         }

@@ -72,9 +72,11 @@ class AdminDetailController extends Controller
         $request->validate(
             [
                 'titles' => 'required',
+                'email' => 'required',
                 'address' => 'required',
                 'fbLink' => 'required',
                 'instaLink' => 'required',
+                'ytLink' => 'required',
                 'contact1' => 'required',
                 'contact2' => 'required',
                 'bio' => 'required'
@@ -82,9 +84,11 @@ class AdminDetailController extends Controller
         );
         $setting = AdminDetail::find($id);
         $setting->titles = $request->titles;
+        $setting->email = $request->email;
         $setting->address = $request->address;
         $setting->fbLink = $request->fbLink;
         $setting->instaLink = $request->instaLink;
+        $setting->ytLink = $request->ytLink;
         $setting->contact1 = $request->contact1;
         $setting->contact2 = $request->contact2;
         $setting->bio = $request->bio;

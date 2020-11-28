@@ -18,7 +18,7 @@ https://www.facebook.com/ThisIsAchyut
     <meta property="og:image" content="{{ asset('statics/ogimage.jpg') }}" />
     <meta name="author" content="Achyut Neupane" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@yield('title') - Sambat</title>
+    <title>@yield('title') - SAMBAT</title>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="icon" type="image/png" href="{{ asset('statics/favicon.png') }}" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -28,7 +28,7 @@ https://www.facebook.com/ThisIsAchyut
     <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm ml-auto sticky-top">
         <div class="container">
             <h2 class="navbar-nav mr-auto">
-                <a href='{{ url('/home') }}' class='text-white'>
+                <a href='{{ route('home') }}' class='text-white'>
                     Admin Panel
                 </a>
             </h2>

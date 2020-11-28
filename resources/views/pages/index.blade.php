@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', $setting)
 @section('title', 'Home')
 @section('content')
 <div class="bgImage"></div>
@@ -10,11 +10,11 @@
             </h1>
         </div>
         <h3 class="titleSub fadeInRight">
-            <span class="titles">Musician,Music Educator,Composer</span>
+            <span class="titles">{{ $setting->titles }}</span>
             <strong class="typedText"></strong>
         </h3>
         <div class="row titleButtons fadeInRight">
-            <div class="col-lg-3 titleBtn">
+            <div class="col-lg-4 titleBtn">
                 <button
                     type="button"
                     class="btn btn-outline-dark"
@@ -24,19 +24,14 @@
                     Contact
                 </button>
             </div>
-            <div class="col-lg-3 titleBtn">
+            <div class="col-lg-4 titleBtn">
                 <a href="bio" type="button" class="btn btn-outline-dark">
                     Bio
                 </a>
             </div>
-            <div class="col-lg-3 titleBtn">
-                <a href="blog" type="button" class="btn btn-outline-dark">
-                    Blog
-                </a>
-            </div>
-            <div class="col-lg-3 titleBtn">
+            <div class="col-lg-4 titleBtn">
                 <a
-                    href="https://www.youtube.com/sambatshree"
+                    href="{{ $setting->ytLink }}"
                     type="button"
                     class="btn btn-outline-dark"
                     target="_blank"
@@ -46,7 +41,7 @@
             </div>
             @auth
             <div class="col-lg-12 titleBtn mt-1">
-                <a href="{{ url('/home') }}" type="button" class="btn btn-outline-dark">
+                <a href="{{ route('home') }}" type="button" class="btn btn-outline-dark">
                     Admin Panel
                 </a>
             </div>
@@ -65,7 +60,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="contactModalLongTitle">
-                        <b>Contact Sambat </b>
+                        <b>Contact Sambat</b>
                     </h4>
                     <button
                         type="button"
@@ -77,11 +72,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <a href="https://sambat.com.np"><b>Sambat Adhikari<b></a><br>
-                        <b>Dharan, Nepal 56700</b><br />
-                        <i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:977 9812354594">+977 9812354594</a><br>
-                        <i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:9779842141959">+977 9842141959</a><br>
-                        <i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:info@sambat.com.np">info@sambat.com.np</a><br>
+                    <a href="{{ route('homepage') }}"><b>Sambat Adhikari<b></a><br>
+                    <b>{{ $setting->address }}</b><br />
+                    <i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:{{ $setting->contact1 }}">{{ $setting->contact1 }}</a><br>
+                    <i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:{{ $setting->contact2 }}">{{ $setting->contact2 }}</a><br>
+                    <i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:{{ $setting->email }}">{{ $setting->email }}</a><br>
                 </div>
             </div>
         </div>

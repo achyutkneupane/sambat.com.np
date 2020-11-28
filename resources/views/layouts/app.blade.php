@@ -32,17 +32,17 @@ https://www.facebook.com/ThisIsAchyut
         <div class="social-menu">
             <ul>
               <li class="fadeInUp">
-                <a href="https://www.facebook.com/sambatshree/" target="_blank"
+                <a href="{{ $setting->fbLink }}" target="_blank"
                   ><i class="fa fa-facebook"></i
                 ></a>
               </li>
               <li class="fadeInUp">
-                <a href="https://www.instagram.com/sambatshree/" target="_blank"
+                <a href="{{ $setting->instaLink }}" target="_blank"
                   ><i class="fa fa-instagram"></i
                 ></a>
               </li>
               <li class="fadeInUp">
-                <a href="mailto:info@sambat.com.np"
+                <a href="mailto:{{ $setting->email }}"
                   ><i class="fa fa-envelope"></i
                 ></a>
               </li>
@@ -58,4 +58,5 @@ https://www.facebook.com/ThisIsAchyut
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 <script src="{{ asset('js/app.js') }}" defer></script>
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f9faf7c6bdd840019e027da&product=inline-share-buttons' async='async'></script>
 </html>

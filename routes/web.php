@@ -14,9 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'RouteController@index');
+Route::get('/', 'RouteController@index')->name('homepage');
 Route::get('/bio', 'RouteController@bio');
-Route::get('/blog', 'RouteController@blog');
+
+Route::group(['prefix' => 'blog/'], function () {
+    Route::get('/', 'BlogController@view')->name('blog.view');
+});
 
 Route::group(['prefix' => 'admin/', 'middleware' => 'auth'], function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

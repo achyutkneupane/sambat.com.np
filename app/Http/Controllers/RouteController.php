@@ -2,21 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\AdminDetail;
 
 class RouteController extends Controller
 {
     public function index()
     {
-        return view('pages.index');
+        return view('pages.index')->with('setting', AdminDetail::first());
     }
     public function bio()
     {
-        return view('pages.bio');
-    }
-    public function blog()
-    {
-        return view('pages.viewBlog');
+        return view('pages.bio')->with('setting', AdminDetail::first());
     }
     public function phpmyadmin()
     {

@@ -29,6 +29,14 @@
                 </tr>
                 <tr>
                     <th scope="row">
+                        E-mail
+                    </th>
+                    <td>
+                        <input type="text" class="form-control" name="email" value="{{ $setting->email }}" placeholder="Email Address">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
                         Address
                     </th>
                     <td>
@@ -49,6 +57,14 @@
                     </th>
                     <td>
                         <input type="text" class="form-control" name="instaLink" value="{{ $setting->instaLink }}" placeholder="Instagram">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        Youtube Link
+                    </th>
+                    <td>
+                        <input type="text" class="form-control" name="ytLink" value="{{ $setting->ytLink }}" placeholder="Youtube">
                     </td>
                 </tr>
                 <tr>
