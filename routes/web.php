@@ -19,6 +19,7 @@ Route::get('/bio', 'RouteController@bio');
 
 Route::group(['prefix' => 'blog/'], function () {
     Route::get('/', 'BlogController@view')->name('blog.view');
+    Route::get('/getposts/{value}', 'BlogController@getpost')->name('blog.getpost');
 });
 
 Route::group(['prefix' => 'admin/', 'middleware' => 'auth'], function () {

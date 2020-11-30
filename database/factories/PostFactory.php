@@ -23,7 +23,7 @@ class PostFactory extends Factory
     {
         return [
             'user_id' => 2,
-            'category_id' => 3,
+            'category_id' => 2,
             'title' => $this->faker->sentence($nbWords = 4, $variableNbWords = true),
             'slug' => $this->faker->word,
             'post_content' => $this->faker->sentence($nbWords = 25, $variableNbWords = true),
