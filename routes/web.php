@@ -1,8 +1,6 @@
 <?php
 
-use App\Http\Controllers\RouteController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,9 +16,10 @@ Route::get('/', 'RouteController@index')->name('homepage');
 Route::get('/bio', 'RouteController@bio');
 
 Route::group(['prefix' => 'blog/'], function () {
-    Route::get('/', 'BlogController@view')->name('blog.view');
-    Route::get('/getposts/{value}', 'BlogController@getpost')->name('blog.getpost');
+    Route::view('/', 'blog.index')->name('blog.index');
+    Route::get('/{slug}', [App\Http\Livewire\Post::class, 'render']);
 });
+
 
 Route::group(['prefix' => 'admin/', 'middleware' => 'auth'], function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
